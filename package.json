@@ -1,0 +1,26 @@
+{
+  "name": "pi-memory-to-wiki",
+  "version": "0.1.0",
+  "description": "Human-reviewed promotion from pi-hermes-memory to LLM Wiki",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=24.0.0" },
+  "files": ["extensions", "src", "README.md", "LICENSE"],
+  "pi": { "extensions": ["./extensions/pi-memory-to-wiki.ts"] },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:runtime": "node tests/runtime-smoke.mjs",
+    "test:package": "node tests/package-install-smoke.mjs",
+    "validate": "npm run check && npm test && npm run test:runtime && npm run test:package"
+  },
+  "peerDependencies": { "@earendil-works/pi-coding-agent": "*" },
+  "peerDependenciesMeta": { "@earendil-works/pi-coding-agent": { "optional": true } },
+  "dependencies": { "typebox": "^1.3.7" },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.84.1",
+    "@types/node": "^24.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}
